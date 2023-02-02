@@ -1,0 +1,3 @@
+[submodule "TinyEngine/ThirdParty/spdlog"]
+	path = TinyEngine/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog
