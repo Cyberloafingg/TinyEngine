@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
     <Filter Include="TinyEngine">
       <UniqueIdentifier>{7FCAB4DF-6B82-F62C-D489-CF88C060911D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TinyEngine\Events">
+      <UniqueIdentifier>{83D14B9F-EFE7-4935-385F-D556A4B41ABD}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\TinyEngine.h" />
     <ClInclude Include="src\TinyEngine\Application.h">
       <Filter>TinyEngine</Filter>
@@ -16,16 +28,36 @@
     <ClInclude Include="src\TinyEngine\EntryPoint.h">
       <Filter>TinyEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\TinyEngine\Events\ApplicationEvent.h">
+      <Filter>TinyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TinyEngine\Events\Event.h">
+      <Filter>TinyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TinyEngine\Events\Keyevent.h">
+      <Filter>TinyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TinyEngine\Events\MouseEvent.h">
+      <Filter>TinyEngine\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\TinyEngine\Log.h">
       <Filter>TinyEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\TinyEngine\Window.h">
+      <Filter>TinyEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tepch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\TinyEngine\Application.cpp">
       <Filter>TinyEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\TinyEngine\Log.cpp">
       <Filter>TinyEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\tepch.cpp" />
   </ItemGroup>
 </Project>

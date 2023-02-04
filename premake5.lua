@@ -10,6 +10,13 @@ workspace "TinyEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "TinyEngine/ThirdParty/GLFW/include"
+
+include "TinyEngine/ThirdParty/GLFW"
+
+
 project "TinyEngine"
 	location "TinyEngine"
 	kind "SharedLib"
@@ -18,6 +25,8 @@ project "TinyEngine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "tepch.h"
+	pchsource "TinyEngine/src/tepch.cpp"
 
 	files
 	{
@@ -27,7 +36,15 @@ project "TinyEngine"
 
 	includedirs
 	{
-		"%{prj.name}/ThirdParty/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/ThirdParty/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -49,10 +66,12 @@ project "TinyEngine"
 		filter "configurations:Release"
 			defines "TE_RELEASE"
 			symbols "On"
+			buildoptions "/MD"
 
 		filter "configurations:Ddebug"
 			defines "TE_DEBUG"
 			symbols "On"
+			buildoptions "/MD"
 		
 		filter "configurations:Dist"
 			defines "TE_DIST"
@@ -97,10 +116,12 @@ project "Sandbox"
 	filter "configurations:Release"
 			defines "TE_RELEASE"
 			symbols "On"
+			buildoptions "/MT"
 
 	filter "configurations:Ddebug"
 			defines "TE_DEBUG"
 			symbols "On"
+			buildoptions "/MT"
 		
 	filter "configurations:Dist"
 			defines "TE_DIST"

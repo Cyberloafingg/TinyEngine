@@ -7,5 +7,5 @@
 
 
 //----Entry Point---------------------------
-#include "TinyEngine\EntryPoint.h"
+#include "TinyEngine/EntryPoint.h"
 //------------------------------------------
